@@ -1,13 +1,15 @@
-package com.lahardman.cubicworldstreaming.ticketing;
+package com.lahardman.cubicworldstreaming/ticketing;
 
 import com.lahardman.cubicworldstreaming.api.CubeLifecycleState;
 import com.lahardman.cubicworldstreaming.api.CubePosition;
 import com.lahardman.cubicworldstreaming.api.CubeTicket;
+import com.lahardman.cubicworldstreaming.api.CubeTicketSourceKey;
 import com.lahardman.cubicworldstreaming.core.CubeStateRepository;
 
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -21,6 +23,7 @@ import java.util.concurrent.ConcurrentHashMap;
  *   <li>Drop expired tickets</li>
  *   <li>Compute strongest pressure per cube</li>
  *   <li>Update desired lifecycle state in repository</li>
+ *   <li>Support replacing/removing all tickets for a given source key (e.g., one player)</li>
  * </ul>
  */
 public class CubeTicketManager {
@@ -34,9 +37,6 @@ public class CubeTicketManager {
         this.cubeStateRepository = cubeStateRepository;
     }
 
-    /**
-     * Adds a new ticket and immediately recomputes desired state for that cube.
-     */
     public void addTicket(CubeTicket cubeTicket) {
         ticketsByCubePosition
             .computeIfAbsent(cubeTicket.targetCubePosition(), ignored -> new ArrayList<>())
@@ -46,8 +46,47 @@ public class CubeTicketManager {
     }
 
     /**
-     * Removes expired tickets across all cubes and recomputes affected states.
+     * Replaces all tickets from a specific source with a new ticket set.
+     *
+     * <p>This is ideal for player movement updates where we want the new footprint to atomically
+     * supersede the old footprint.</p>
      */
+    public synchronized void replaceTicketsForSource(CubeTicketSourceKey sourceKey, List<CubeTicket> replacementTickets, Instant now) {
+        String sourceDescription = sourceKey.toSourceDescription();
+
+        // Remove existing tickets from this source and track touched cubes for recomputation.
+        Map<CubePosition, Boolean> touchedCubes = new HashMap<>();
+        for (Map.Entry<CubePosition, List<CubeTicket>> entry : ticketsByCubePosition.entrySet()) {
+            CubePosition cubePosition = entry.getKey();
+            List<CubeTicket> cubeTickets = entry.getValue();
+
+            boolean removedAny = cubeTickets.removeIf(ticket -> sourceDescription.equals(ticket.sourceDescription()));
+            if (removedAny) {
+                touchedCubes.put(cubePosition, Boolean.TRUE);
+            }
+        }
+
+        // Add replacements.
+        for (CubeTicket replacement : replacementTickets) {
+            ticketsByCubePosition
+                .computeIfAbsent(replacement.targetCubePosition(), ignored -> new ArrayList<>())
+                .add(replacement);
+            touchedCubes.put(replacement.targetCubePosition(), Boolean.TRUE);
+        }
+
+        // Recompute only affected cubes.
+        for (CubePosition touchedCube : touchedCubes.keySet()) {
+            recomputeStateForCube(touchedCube, now);
+        }
+    }
+
+    /**
+     * Removes all tickets from a given source and recomputes affected cubes.
+     */
+    public synchronized void removeTicketsForSource(CubeTicketSourceKey sourceKey, Instant now) {
+        replaceTicketsForSource(sourceKey, List.of(), now);
+    }
+
     public void purgeExpiredTicketsAndRecompute(Instant now) {
         for (Map.Entry<CubePosition, List<CubeTicket>> entry : ticketsByCubePosition.entrySet()) {
             CubePosition cubePosition = entry.getKey();
@@ -57,9 +96,6 @@ public class CubeTicketManager {
         }
     }
 
-    /**
-     * Returns the currently strongest (lowest-level) ticket for observability/debug use.
-     */
     public CubeTicket getStrongestTicketOrNull(CubePosition cubePosition, Instant now) {
         List<CubeTicket> tickets = ticketsByCubePosition.get(cubePosition);
         if (tickets == null || tickets.isEmpty()) {
