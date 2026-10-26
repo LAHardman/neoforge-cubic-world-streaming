@@ -1,0 +1,261 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "Neoforge-cubic-world-streaming - Client",
+      "presentation": {
+        "group": "NG - neoforge-cubic-world-streaming",
+        "order": 0
+      },
+      "projectName": "neoforge-cubic-world-streaming",
+      "mainClass": "cpw.mods.bootstraplauncher.BootstrapLauncher",
+      "args": [
+        "--launchTarget",
+        "forgeclientdev",
+        "--version",
+        "21.1.173",
+        "--assetIndex",
+        "asset-index",
+        "--assetsDir",
+        "C:\\Users\\lhard\\.gradle\\caches\\minecraft\\assets",
+        "--gameDir",
+        ".",
+        "--fml.fmlVersion",
+        "4.0.39",
+        "--fml.mcVersion",
+        "1.21.1",
+        "--fml.neoForgeVersion",
+        "21.1.173",
+        "--fml.neoFormVersion",
+        "20240808.144430"
+      ],
+      "vmArgs": [
+        "-p",
+        "C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\cpw.mods\\bootstraplauncher\\2.0.2\\1a2d076cbc33b0520cbacd591224427b2a20047d\\bootstraplauncher-2.0.2.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\cpw.mods\\securejarhandler\\3.0.8\\c0ef95cecd8699a0449053ac7d9c160748d902cd\\securejarhandler-3.0.8.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm-commons\\9.7\\e86dda4696d3c185fcc95d8d311904e7ce38a53f\\asm-commons-9.7.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm-util\\9.7\\c0655519f24d92af2202cb681cd7c1569df6ead6\\asm-util-9.7.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm-analysis\\9.7\\e4a258b7eb96107106c0599f0061cfc1832fe07a\\asm-analysis-9.7.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm-tree\\9.7\\e446a17b175bfb733b87c5c2560ccb4e57d69f1a\\asm-tree-9.7.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm\\9.7\\73d7b3086e14beb604ced229c302feff6449723\\asm-9.7.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\net.neoforged\\JarJarFileSystems\\0.4.1\\78f59f89defcd032ed788b151ca6a0d40ace796a\\JarJarFileSystems-0.4.1.jar",
+        "--add-modules",
+        "ALL-MODULE-PATH",
+        "--add-opens",
+        "java.base/java.util.jar\u003dcpw.mods.securejarhandler",
+        "--add-opens",
+        "java.base/java.lang.invoke\u003dcpw.mods.securejarhandler",
+        "--add-exports",
+        "java.base/sun.security.util\u003dcpw.mods.securejarhandler",
+        "--add-exports",
+        "jdk.naming.dns/com.sun.jndi.dns\u003djava.naming",
+        "-XX:HeapDumpPath\u003dMojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump",
+        "-Dneoforge.enableGameTest\u003dtrue",
+        "-DlegacyClassPath.file\u003dC:\\Users\\lhard\\neoforge-cubic-world-streaming\\.gradle\\configuration\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\writeMinecraftClasspathClient\\classpath.txt",
+        "-DignoreList\u003dmixinextras-neoforge-0.4.1.jar,client-extra,neoforge-",
+        "-Djava.net.preferIPv6Addresses\u003dsystem"
+      ],
+      "cwd": "${workspaceFolder}\\run",
+      "env": {
+        "MOD_CLASSES": "neoforge-cubic-world-streaming%%C:\\Users\\lhard\\neoforge-cubic-world-streaming\\bin\\main"
+      },
+      "shortenCommandLine": "argfile"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "Neoforge-cubic-world-streaming - Data",
+      "presentation": {
+        "group": "NG - neoforge-cubic-world-streaming",
+        "order": 1
+      },
+      "projectName": "neoforge-cubic-world-streaming",
+      "mainClass": "cpw.mods.bootstraplauncher.BootstrapLauncher",
+      "args": [
+        "--launchTarget",
+        "forgedatadev",
+        "--assetIndex",
+        "asset-index",
+        "--assetsDir",
+        "C:\\Users\\lhard\\.gradle\\caches\\minecraft\\assets",
+        "--gameDir",
+        ".",
+        "--fml.fmlVersion",
+        "4.0.39",
+        "--fml.mcVersion",
+        "1.21.1",
+        "--fml.neoForgeVersion",
+        "21.1.173",
+        "--fml.neoFormVersion",
+        "20240808.144430"
+      ],
+      "vmArgs": [
+        "-p",
+        "C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\cpw.mods\\bootstraplauncher\\2.0.2\\1a2d076cbc33b0520cbacd591224427b2a20047d\\bootstraplauncher-2.0.2.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\cpw.mods\\securejarhandler\\3.0.8\\c0ef95cecd8699a0449053ac7d9c160748d902cd\\securejarhandler-3.0.8.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm-commons\\9.7\\e86dda4696d3c185fcc95d8d311904e7ce38a53f\\asm-commons-9.7.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm-util\\9.7\\c0655519f24d92af2202cb681cd7c1569df6ead6\\asm-util-9.7.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm-analysis\\9.7\\e4a258b7eb96107106c0599f0061cfc1832fe07a\\asm-analysis-9.7.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm-tree\\9.7\\e446a17b175bfb733b87c5c2560ccb4e57d69f1a\\asm-tree-9.7.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm\\9.7\\73d7b3086e14beb604ced229c302feff6449723\\asm-9.7.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\net.neoforged\\JarJarFileSystems\\0.4.1\\78f59f89defcd032ed788b151ca6a0d40ace796a\\JarJarFileSystems-0.4.1.jar",
+        "--add-modules",
+        "ALL-MODULE-PATH",
+        "--add-opens",
+        "java.base/java.util.jar\u003dcpw.mods.securejarhandler",
+        "--add-opens",
+        "java.base/java.lang.invoke\u003dcpw.mods.securejarhandler",
+        "--add-exports",
+        "java.base/sun.security.util\u003dcpw.mods.securejarhandler",
+        "--add-exports",
+        "jdk.naming.dns/com.sun.jndi.dns\u003djava.naming",
+        "-DlegacyClassPath.file\u003dC:\\Users\\lhard\\neoforge-cubic-world-streaming\\.gradle\\configuration\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\writeMinecraftClasspathData\\classpath.txt",
+        "-DignoreList\u003dmixinextras-neoforge-0.4.1.jar,client-extra,neoforge-",
+        "-Djava.net.preferIPv6Addresses\u003dsystem"
+      ],
+      "cwd": "${workspaceFolder}\\runs\\data",
+      "env": {
+        "MOD_CLASSES": "neoforge-cubic-world-streaming%%C:\\Users\\lhard\\neoforge-cubic-world-streaming\\bin\\main"
+      },
+      "shortenCommandLine": "argfile"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "Neoforge-cubic-world-streaming - GameTestServer",
+      "presentation": {
+        "group": "NG - neoforge-cubic-world-streaming",
+        "order": 2
+      },
+      "projectName": "neoforge-cubic-world-streaming",
+      "mainClass": "cpw.mods.bootstraplauncher.BootstrapLauncher",
+      "args": [
+        "--launchTarget",
+        "forgeserverdev",
+        "--gameDir",
+        ".",
+        "--fml.fmlVersion",
+        "4.0.39",
+        "--fml.mcVersion",
+        "1.21.1",
+        "--fml.neoForgeVersion",
+        "21.1.173",
+        "--fml.neoFormVersion",
+        "20240808.144430"
+      ],
+      "vmArgs": [
+        "-p",
+        "C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\cpw.mods\\bootstraplauncher\\2.0.2\\1a2d076cbc33b0520cbacd591224427b2a20047d\\bootstraplauncher-2.0.2.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\cpw.mods\\securejarhandler\\3.0.8\\c0ef95cecd8699a0449053ac7d9c160748d902cd\\securejarhandler-3.0.8.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm-commons\\9.7\\e86dda4696d3c185fcc95d8d311904e7ce38a53f\\asm-commons-9.7.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm-util\\9.7\\c0655519f24d92af2202cb681cd7c1569df6ead6\\asm-util-9.7.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm-analysis\\9.7\\e4a258b7eb96107106c0599f0061cfc1832fe07a\\asm-analysis-9.7.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm-tree\\9.7\\e446a17b175bfb733b87c5c2560ccb4e57d69f1a\\asm-tree-9.7.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm\\9.7\\73d7b3086e14beb604ced229c302feff6449723\\asm-9.7.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\net.neoforged\\JarJarFileSystems\\0.4.1\\78f59f89defcd032ed788b151ca6a0d40ace796a\\JarJarFileSystems-0.4.1.jar",
+        "--add-modules",
+        "ALL-MODULE-PATH",
+        "--add-opens",
+        "java.base/java.util.jar\u003dcpw.mods.securejarhandler",
+        "--add-opens",
+        "java.base/java.lang.invoke\u003dcpw.mods.securejarhandler",
+        "--add-exports",
+        "java.base/sun.security.util\u003dcpw.mods.securejarhandler",
+        "--add-exports",
+        "jdk.naming.dns/com.sun.jndi.dns\u003djava.naming",
+        "-Dneoforge.enableGameTest\u003dtrue",
+        "-Dneoforge.gameTestServer\u003dtrue",
+        "-DlegacyClassPath.file\u003dC:\\Users\\lhard\\neoforge-cubic-world-streaming\\.gradle\\configuration\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\writeMinecraftClasspathGameTestServer\\classpath.txt",
+        "-DignoreList\u003dmixinextras-neoforge-0.4.1.jar,client-extra,neoforge-",
+        "-Djava.net.preferIPv6Addresses\u003dsystem"
+      ],
+      "cwd": "${workspaceFolder}\\runs\\gameTestServer",
+      "env": {
+        "MOD_CLASSES": "neoforge-cubic-world-streaming%%C:\\Users\\lhard\\neoforge-cubic-world-streaming\\bin\\main"
+      },
+      "shortenCommandLine": "argfile"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "Neoforge-cubic-world-streaming - Junit",
+      "presentation": {
+        "group": "NG - neoforge-cubic-world-streaming",
+        "order": 3
+      },
+      "projectName": "neoforge-cubic-world-streaming",
+      "mainClass": "cpw.mods.bootstraplauncher.BootstrapLauncher",
+      "args": [
+        "--launchTarget",
+        "forgejunitdev",
+        "--version",
+        "21.1.173",
+        "--assetIndex",
+        "asset-index",
+        "--assetsDir",
+        "C:\\Users\\lhard\\.gradle\\caches\\minecraft\\assets",
+        "--gameDir",
+        ".",
+        "--fml.fmlVersion",
+        "4.0.39",
+        "--fml.mcVersion",
+        "1.21.1",
+        "--fml.neoForgeVersion",
+        "21.1.173",
+        "--fml.neoFormVersion",
+        "20240808.144430"
+      ],
+      "vmArgs": [
+        "-p",
+        "C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\cpw.mods\\bootstraplauncher\\2.0.2\\1a2d076cbc33b0520cbacd591224427b2a20047d\\bootstraplauncher-2.0.2.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\cpw.mods\\securejarhandler\\3.0.8\\c0ef95cecd8699a0449053ac7d9c160748d902cd\\securejarhandler-3.0.8.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm-commons\\9.7\\e86dda4696d3c185fcc95d8d311904e7ce38a53f\\asm-commons-9.7.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm-util\\9.7\\c0655519f24d92af2202cb681cd7c1569df6ead6\\asm-util-9.7.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm-analysis\\9.7\\e4a258b7eb96107106c0599f0061cfc1832fe07a\\asm-analysis-9.7.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm-tree\\9.7\\e446a17b175bfb733b87c5c2560ccb4e57d69f1a\\asm-tree-9.7.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm\\9.7\\73d7b3086e14beb604ced229c302feff6449723\\asm-9.7.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\net.neoforged\\JarJarFileSystems\\0.4.1\\78f59f89defcd032ed788b151ca6a0d40ace796a\\JarJarFileSystems-0.4.1.jar",
+        "--add-modules",
+        "ALL-MODULE-PATH",
+        "--add-opens",
+        "java.base/java.util.jar\u003dcpw.mods.securejarhandler",
+        "--add-opens",
+        "java.base/java.lang.invoke\u003dcpw.mods.securejarhandler",
+        "--add-exports",
+        "java.base/sun.security.util\u003dcpw.mods.securejarhandler",
+        "--add-exports",
+        "jdk.naming.dns/com.sun.jndi.dns\u003djava.naming",
+        "-XX:HeapDumpPath\u003dMojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump",
+        "-DlegacyClassPath.file\u003dC:\\Users\\lhard\\neoforge-cubic-world-streaming\\.gradle\\configuration\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\writeMinecraftClasspathJunit\\classpath.txt",
+        "-DignoreList\u003dmixinextras-neoforge-0.4.1.jar,client-extra,neoforge-",
+        "-Djava.net.preferIPv6Addresses\u003dsystem"
+      ],
+      "cwd": "${workspaceFolder}\\runs\\junit",
+      "env": {
+        "MOD_CLASSES": "neoforge-cubic-world-streaming%%C:\\Users\\lhard\\neoforge-cubic-world-streaming\\bin\\main"
+      },
+      "shortenCommandLine": "argfile"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "Neoforge-cubic-world-streaming - Server",
+      "presentation": {
+        "group": "NG - neoforge-cubic-world-streaming",
+        "order": 4
+      },
+      "projectName": "neoforge-cubic-world-streaming",
+      "mainClass": "cpw.mods.bootstraplauncher.BootstrapLauncher",
+      "args": [
+        "--launchTarget",
+        "forgeserverdev",
+        "--gameDir",
+        ".",
+        "--fml.fmlVersion",
+        "4.0.39",
+        "--fml.mcVersion",
+        "1.21.1",
+        "--fml.neoForgeVersion",
+        "21.1.173",
+        "--fml.neoFormVersion",
+        "20240808.144430"
+      ],
+      "vmArgs": [
+        "-p",
+        "C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\cpw.mods\\bootstraplauncher\\2.0.2\\1a2d076cbc33b0520cbacd591224427b2a20047d\\bootstraplauncher-2.0.2.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\cpw.mods\\securejarhandler\\3.0.8\\c0ef95cecd8699a0449053ac7d9c160748d902cd\\securejarhandler-3.0.8.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm-commons\\9.7\\e86dda4696d3c185fcc95d8d311904e7ce38a53f\\asm-commons-9.7.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm-util\\9.7\\c0655519f24d92af2202cb681cd7c1569df6ead6\\asm-util-9.7.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm-analysis\\9.7\\e4a258b7eb96107106c0599f0061cfc1832fe07a\\asm-analysis-9.7.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm-tree\\9.7\\e446a17b175bfb733b87c5c2560ccb4e57d69f1a\\asm-tree-9.7.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm\\9.7\\73d7b3086e14beb604ced229c302feff6449723\\asm-9.7.jar;C:\\Users\\lhard\\.gradle\\caches\\modules-2\\files-2.1\\net.neoforged\\JarJarFileSystems\\0.4.1\\78f59f89defcd032ed788b151ca6a0d40ace796a\\JarJarFileSystems-0.4.1.jar",
+        "--add-modules",
+        "ALL-MODULE-PATH",
+        "--add-opens",
+        "java.base/java.util.jar\u003dcpw.mods.securejarhandler",
+        "--add-opens",
+        "java.base/java.lang.invoke\u003dcpw.mods.securejarhandler",
+        "--add-exports",
+        "java.base/sun.security.util\u003dcpw.mods.securejarhandler",
+        "--add-exports",
+        "jdk.naming.dns/com.sun.jndi.dns\u003djava.naming",
+        "-DlegacyClassPath.file\u003dC:\\Users\\lhard\\neoforge-cubic-world-streaming\\.gradle\\configuration\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\writeMinecraftClasspathServer\\classpath.txt",
+        "-DignoreList\u003dmixinextras-neoforge-0.4.1.jar,client-extra,neoforge-",
+        "-Djava.net.preferIPv6Addresses\u003dsystem"
+      ],
+      "cwd": "${workspaceFolder}\\run-server",
+      "env": {
+        "MOD_CLASSES": "neoforge-cubic-world-streaming%%C:\\Users\\lhard\\neoforge-cubic-world-streaming\\bin\\main"
+      },
+      "shortenCommandLine": "argfile"
+    }
+  ]
+}

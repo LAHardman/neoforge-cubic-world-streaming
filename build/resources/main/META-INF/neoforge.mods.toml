@@ -1,0 +1,12 @@
+modLoader="javafml"
+loaderVersion="[1,)"
+license="MIT"
+
+[[mods]]
+modId="cubicworldstreaming"
+version="0.0.1-SNAPSHOT"
+displayName="Cubic World Streaming"
+authors="LAHardman"
+description='''
+Experimental NeoForge 26.3 scaffold for cube-based vertical streaming, generation LOD, and simulation gating.
+'''
