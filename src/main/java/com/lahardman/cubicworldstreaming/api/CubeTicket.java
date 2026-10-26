@@ -1,6 +1,6 @@
 package com.lahardman.cubicworldstreaming.api;
 
-import com.lahardman.cubicworldstreaming.ticketing.CubeTicketPurpose;
+import com.lahardman.cubicworldstreaming.api.CubeTicketPurpose;
 
 import java.time.Instant;
 
