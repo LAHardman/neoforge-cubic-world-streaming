@@ -1,9 +1,10 @@
 plugins {
     id 'java'
+    id 'net.neoforged.gradle.userdev' version '7.0.165'
 }
 
-group = 'com.lahardman.cubic'
-version = '0.0.1-SNAPSHOT'
+group = 'com.lahardman'
+version = '0.1.0'
 
 java {
     toolchain {
@@ -13,18 +14,26 @@ java {
 
 repositories {
     mavenCentral()
-    maven { url = 'https://maven.neoforged.net/releases' }
+    maven { url = uri("https://maven.neoforged.net/releases") }
 }
 
 dependencies {
-    // NeoForge API for mod bootstrap + event bus hooks.
-    // Version is pinned to a 26.3 line placeholder and can be adjusted as needed.
-    implementation 'net.neoforged:neoforge:26.3.0'
-
-    testImplementation platform('org.junit:junit-bom:5.10.2')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation 'net.neoforged:neoforge:21.1.173'
 }
 
-test {
-    useJUnitPlatform()
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+neoForge {
+    runs {
+        client {
+            client()
+            gameDirectory = file('run')
+        }
+        server {
+            server()
+            gameDirectory = file('run-server')
+        }
+    }
 }
