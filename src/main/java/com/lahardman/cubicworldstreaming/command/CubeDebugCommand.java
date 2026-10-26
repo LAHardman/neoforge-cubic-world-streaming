@@ -1,6 +1,7 @@
 package com.lahardman.cubicworldstreaming.command;
 
 import com.lahardman.cubicworldstreaming.api.CubePosition;
+import com.lahardman.cubicworldstreaming.api.CubeTicketSourceKey;
 import com.lahardman.cubicworldstreaming.runtime.CubicWorldStreamingRuntimeManager;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
@@ -8,6 +9,8 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
+
+import java.time.Instant;
 
 /**
  * Registers debug commands for cube state visibility.
@@ -67,6 +70,23 @@ public final class CubeDebugCommand {
                             )
                         )
                     )
+                )
+                .then(Commands.literal("stats")
+                    .executes(context -> {
+                        CommandSourceStack source = context.getSource();
+                        ServerPlayer player = source.getPlayerOrException();
+                        var runtime = CubicWorldStreamingRuntimeManager.get(source.getServer());
+                        if (runtime == null) {
+                            source.sendFailure(Component.literal("Cubic runtime not initialized."));
+                            return 0;
+                        }
+
+                        CubeTicketSourceKey sourceKey = CubeTicketSourceKey.player(player.getUUID().toString());
+                        int activeTicketCount = runtime.cubeTicketManager().getActiveTicketCountForSource(sourceKey, Instant.now());
+
+                        source.sendSuccess(() -> Component.literal("Active player tickets=" + activeTicketCount), false);
+                        return 1;
+                    })
                 )
         );
     }

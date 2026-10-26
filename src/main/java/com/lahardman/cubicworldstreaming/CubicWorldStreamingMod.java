@@ -4,6 +4,7 @@ import com.lahardman.cubicworldstreaming.command.CubeDebugCommand;
 import com.lahardman.cubicworldstreaming.runtime.CubicWorldStreamingRuntimeManager;
 import com.lahardman.cubicworldstreaming.runtime.CubicWorldStreamingTickCoordinator;
 import com.lahardman.cubicworldstreaming.runtime.PlayerTicketUpdateCoordinator;
+import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
@@ -57,7 +58,10 @@ public class CubicWorldStreamingMod {
     }
 
     private void onPlayerTick(PlayerTickEvent.Post event) {
-        if (!(event.getEntity() instanceof net.minecraft.server.level.ServerPlayer serverPlayer)) {
+        if (!(event.getEntity() instanceof ServerPlayer serverPlayer)) {
+            return;
+        }
+        if (serverPlayer.level().isClientSide()) {
             return;
         }
 
@@ -70,7 +74,7 @@ public class CubicWorldStreamingMod {
     }
 
     private void onPlayerLoggedOut(PlayerEvent.PlayerLoggedOutEvent event) {
-        if (!(event.getEntity() instanceof net.minecraft.server.level.ServerPlayer serverPlayer)) {
+        if (!(event.getEntity() instanceof ServerPlayer serverPlayer)) {
             return;
         }
 
