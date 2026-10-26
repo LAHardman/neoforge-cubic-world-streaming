@@ -28,10 +28,10 @@ tasks.withType(JavaCompile).configureEach {
 runs {
     client {
         client()
-        gameDirectory = file('run')
+        workingDirectory = file('run')
     }
     server {
         server()
-        gameDirectory = file('run-server')
+        workingDirectory = file('run-server')
     }
 }
