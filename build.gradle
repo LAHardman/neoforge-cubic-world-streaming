@@ -13,9 +13,14 @@ java {
 
 repositories {
     mavenCentral()
+    maven { url = 'https://maven.neoforged.net/releases' }
 }
 
 dependencies {
+    // NeoForge API for mod bootstrap + event bus hooks.
+    // Version is pinned to a 26.3 line placeholder and can be adjusted as needed.
+    implementation 'net.neoforged:neoforge:26.3.0'
+
     testImplementation platform('org.junit:junit-bom:5.10.2')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }
